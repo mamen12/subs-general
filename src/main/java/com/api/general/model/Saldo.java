@@ -1,6 +1,7 @@
 package com.api.general.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -25,8 +26,8 @@ public class Saldo implements Serializable{
 	
 	private String jenis;
 	
-	@Column(name = "tgl_join")
-	private Date tglLahir;
+	@Column(name = "amount")
+	private BigDecimal amount;
 	
 	@Column(name = "created_at")
 	private Date createdAt;
@@ -50,12 +51,12 @@ public class Saldo implements Serializable{
 		this.jenis = jenis;
 	}
 
-	public Date getTglLahir() {
-		return tglLahir;
+	public BigDecimal getAmount() {
+		return amount;
 	}
 
-	public void setTglLahir(Date tglLahir) {
-		this.tglLahir = tglLahir;
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
 	}
 
 	public Date getCreatedAt() {
@@ -73,5 +74,6 @@ public class Saldo implements Serializable{
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+
 	
 }

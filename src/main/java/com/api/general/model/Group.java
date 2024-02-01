@@ -21,9 +21,9 @@ public class Group implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long id;
 	
-	private String name;
+	private String nama;
 	
 	@Column(name = "tgl_join")
 	private Date tglJoin;
@@ -33,21 +33,21 @@ public class Group implements Serializable{
 	
 	@Column(name = "updated_at")
 	private Date updatedAt;
-
-	public Long getId() {
+	
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNama() {
+		return nama;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNama(String nama) {
+		this.nama = nama;
 	}
 
 	public Date getTglJoin() {
