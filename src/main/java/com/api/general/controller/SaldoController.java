@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +26,7 @@ public class SaldoController {
 	
 	
 	@RequestMapping(value = "/saldo/list", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response<List<SaldoResponse>> listGroup(@RequestBody Request<SaldoRequest> rq ){
+    public Object listGroup(@RequestBody Request<SaldoRequest> rq ){
     	Response<List<SaldoResponse>> rs = new Response<>();
 		
 		List<SaldoResponse> saldos = saldoService.listSaldo();
@@ -35,6 +36,11 @@ public class SaldoController {
 		}else {
 			rs.setStatusResponse(ApiResponse.DATA_NOT_FOUND);
 		}
-    	return rs;
+		
+		if (ObjectUtils.isEmpty(rq.getRequestHeader()) || ObjectUtils.isEmpty(rq.getRequestHeader().getChanel())) {
+			return rs.getData();
+		}else {
+			return rs;
+		}
     }
 }
