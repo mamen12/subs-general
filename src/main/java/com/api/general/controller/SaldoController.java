@@ -17,13 +17,14 @@ import com.api.common.beans.constant.ApiResponse;
 import com.api.general.service.ISaldoService;
 
 @RestController
+@RequestMapping("/general")
 public class SaldoController {
 
 	@Autowired
 	private ISaldoService saldoService;
 	
 	
-	@RequestMapping(value = "/list", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/saldo/list", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Response<List<SaldoResponse>> listGroup(@RequestBody Request<SaldoRequest> rq ){
     	Response<List<SaldoResponse>> rs = new Response<>();
 		

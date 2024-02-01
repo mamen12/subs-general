@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -41,7 +43,7 @@ class GroupControllerTest {
 	        ).andExpectAll(
 	                status().isOk()
 	        ).andDo(result -> {
-	            Response<GroupResponse> response = mapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {
+	            Response<List<GroupResponse>> response = mapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {
 	            });
 	            assertEquals(response.getStatus(), ApiResponse.SUCCESS.getCode().toString());
 	        });

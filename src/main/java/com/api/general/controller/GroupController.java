@@ -17,14 +17,14 @@ import com.api.common.beans.constant.ApiResponse;
 import com.api.general.service.IGroupService;
 
 @RestController
-@RequestMapping("/group")
+@RequestMapping("/general")
 public class GroupController {
 
 	@Autowired
 	private IGroupService groupService;
 	
 	
-    @RequestMapping(value = "/list", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/group/list", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Response<List<GroupResponse>> listGroup(@RequestBody Request<GroupRequest> rq ){
     	Response<List<GroupResponse>> rs = new Response<>();
 		
