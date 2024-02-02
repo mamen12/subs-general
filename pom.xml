@@ -42,6 +42,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- 		import common-beans -->
 		<dependency>
 			<groupId>com.api.common</groupId>
 			<artifactId>beans</artifactId>
